@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  authenticateserver.api:
+    image: authenticateserver_api_image
+    build: 
+      context: .
+      dockerfile: AuthenticateService/Dockerfile
+  companyserver.api:
+    image: company_api_image
+    build: 
+      context: .
+      dockerfile: CompanyService/Dockerfile
+  gateway.api:
+    image: gateway_api_image
+    build: 
+      context: .
+      dockerfile: Gateway/Dockerfile
+  mglcore6.mvc:
+    image: mglcore_mvc_image
+    build: 
+      context: .
+      dockerfile: MGLCORE/Dockerfile
+  # mglcore6.api:
+  #   image: authenticateserver_api_image
+  #   build: 
+  #     context: .
+  #     dockerfile: MGLCORE/Dockerfile
+  # microservicedb:
+  #   image: mcr.microsoft.com/mssql/server
+  # authenticateserverdb:
+  #   image: mcr.microsoft.com/mssql/server
+
+# volumes:
+#   authenticateserver_volume:
+#   microservice_volume:

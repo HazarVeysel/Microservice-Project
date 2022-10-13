@@ -1,0 +1,67 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Company",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "companyserver.api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gate/company",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/AddressCard",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "companyserver.api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gate/getcardslist",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/EntryType/AddEntryType",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "companyserver.api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gate/addentrytype",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/EntryType/getentrytypelist",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticateserver.api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gate/entrytypes",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticateserver.api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gate/login",
+      "UpstreamHttpMethod": [ "Post" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://gateway.api"
+  }
+}

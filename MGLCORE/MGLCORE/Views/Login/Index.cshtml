@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+</head>
+<body>
+    <h2>Batı Logistic</h2>
+    <h1></h1>
+    <div class="clear-loading spinner">
+        <span></span>
+    </div>
+    <div class="w3ls-login box box--big">
+        <!-- form starts here -->
+        @using (Html.BeginForm("Giris", "Login", FormMethod.Post))
+        {
+
+
+            <div class="agile-field-txt">
+                <label><i class="fa fa-user" aria-hidden="true"></i> Username </label>
+                <input type="text" name="Email" placeholder="Enter User Mail" required="" />
+            </div>
+            <div class="agile-field-txt">
+                <label><i class="fa fa-unlock-alt" aria-hidden="true"></i> password </label>
+                <input type="password" name="Password" placeholder="Enter Password" required="" id="myInput" />
+                <div class="agile_label">
+                    <input id="check3" name="check3" type="checkbox" value="show password" onclick="TryLogin()">
+                    <label class="check" for="check3">Show password</label>
+                </div>
+                @*<div class="agile-right">
+                        <a href="#">forgot password?</a>
+                    </div>*@
+            </div>
+            <!-- script for show password -->
+            <script>
+                function TryLogin() {
+                    var x = document.getElementById("myInput");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+            </script>
+            <!-- //end script -->
+            <input type="submit" value="LOGIN">
+        }
+    </div>
+    <!-- //form ends here -->
+    <!--copyright-->
+    <div class="copy-wthree">
+        <p>
+            © 2022 Batı Logistic . All Rights Reserved
+        </p>
+    </div>
+</body>
+</html>

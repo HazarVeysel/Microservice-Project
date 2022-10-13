@@ -1,0 +1,65 @@
+
+version: "3.9"
+services:
+  authenticateserver.api:
+    container_name: authenticateserver.api
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # - "ConnectionString:DefaultConnection=Server=10.1.1.164,49172;Database=MglCore6DB; User=veysel; Password=Password12*"
+    ports:
+      - "7054:80"
+  companyserver.api:
+    container_name: companyserver.api
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      
+    ports:
+      - "7125:80"
+  gateway.api:
+    container_name: gateway.api
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      # - "ConnectionString:DefaultConnection=Server=10.1.1.164,49172;Database=MglCore6DB; User=veysel; Password=Password12*"
+    ports:
+      - "7231:80"
+  mglcore6.mvc:
+    container_name: mglcore6.mvc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development      
+    ports:
+      - "7257:80"
+    depends_on:
+      - gateway.api
+      - authenticateserver.api
+      - companyserver.api
+
+
+  # authenticateserver.api:
+  #   container_name: authenticateserver.api
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #     - "ConnectionString:DefaultConnection=Server=10.1.1.164,49172;Database=MglCore6DB; User=veysel; Password=Password12*"
+  #   ports:
+  #     - "5054:80"
+  # microservicedb:
+  #   container_name: microservicedb
+  #   restart: always
+  #   ports:
+  #     - "49172:49172"
+  #   environment:
+  #     - ACCEPT_EULA=Y
+  #     - SA_PASSWORD=Password12*
+  # authenticateserverdb:
+  #   container_name: authenticateserverdb
+  #   restart: always
+  #   ports:
+  #     - "49172:49172"
+  #   volumes:
+  #     - authenticateserver_volume:/var/opt/mssql/data
+  #   environment:
+  #     - ACCEPT_EULA=Y
+  #     - SA_PASSWORD=1234
+    

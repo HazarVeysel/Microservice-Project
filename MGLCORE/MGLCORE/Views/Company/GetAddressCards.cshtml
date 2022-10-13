@@ -1,0 +1,129 @@
+﻿@using Core.Models
+@model List<Tbl_AdresKartlari>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+
+<div class="card-header">
+    <h1 class="card-title"><b>Active Requests</b></h1>
+</div>
+<div class="card-body p-0">
+    <table class="table table-striped projects">
+        <thead>
+            <tr>
+                <th style="width: 0%">
+                    ID
+                </th>
+                <th style="width: 13%">
+                    firmaozel kodu
+                </th>
+                <th style="width: 4%">
+                    muhasebe kodu
+                </th>
+                <th style="width: 3%">
+                    musteri adi
+                </th>
+                <th style="width: 3%">
+                    yerli yabancı
+                </th>
+                <th style="width: 4%">
+                    unvan
+                </th>
+                <th style="width: 4%">
+                    adres
+                </th>
+                <th style="width: 4%">
+                    adres1
+                </th>
+                <th style="width: 15%">
+                    <span>adres2</span>
+                </th>
+                <th style="width: 10%">
+                    <span>txtcountry</span>
+                </th>
+                <th style="width: 10%">
+                    <span>txtcountry code</span>
+                </th>
+                <th style="width: 5%" class="text-center">
+                    ilce
+                </th>
+                <th style="width: 5%" class="text-center">
+                    il
+                </th>
+                
+                <th style="width: 10%" class="text-center">
+                    ilcode
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Take(5000))
+            {
+
+                <tr>
+                    <td>
+                        @item.id
+                    </td>
+                    <td>
+
+                        @item.firmaozelkodu
+                    </td>
+                    <td class="project-state">
+                        @item.muhasebekodu
+                    </td>
+                    <td>
+                        @item.musteradi
+                    </td>
+                    <td>
+                        @item.yerliyabanci
+
+                    </td>
+                    <td>
+                        @item.unvan
+                    </td>
+                    <td>
+                         @item.adres
+
+                    </td>
+                    <td>
+                        @item.adres1
+                    </td>
+                    <td>
+                        @item.adres2
+                    </td>
+                    <td>
+                        @item.txtcountry
+
+                    </td>
+                    <td>
+                        @item.txtcountrycode
+                    </td>
+                    <td class="project-state">
+                        @item.ilce
+
+                    </td>
+                    <td class="project-state">
+                        @item.il
+                    </td>
+                    
+                    <td class="project-actions text-right">
+                         @item.ilcode
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
